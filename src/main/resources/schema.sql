@@ -1,7 +1,8 @@
-CREATE TABLE productos(
-   id SERIAL NOT NULL PRIMARY KEY,
-   descripcion VARCHAR (100),
-   nombre VARCHAR (40),
-   estado VARCHAR (10),
-   precio NUMERIC(6, 2)
+CREATE SEQUENCE cliente_id_seq;
+CREATE TABLE clientes (
+   id varchar(4) NOT NULL DEFAULT lpad(nextval('cliente_id_seq')::varchar, 4, '0'),
+   nombre VARCHAR (50),
+   edad INT NOT NULL,
+   salario NUMERIC(6, 2)
 );
+
